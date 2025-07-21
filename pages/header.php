@@ -28,22 +28,15 @@ include '../conn/cek.php';
 
 <body>
   <div class="container-scroller">
-    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+    <nav class="navbar default-layout col-lg-12 col-12 py-3 fixed-top d-flex align-items-top flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-        <!-- <div class="me-3">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
-            <span class="icon-menu"></span>
-          </button>
-        </div> -->
+    
         <div>
           <a class="navbar-brand brand-logo" href="index.php">
-            <img src="../assets/images/logo1.png" alt="logo" />
+            <img src="../assets/images/pertamina.png" alt="logo" />
           </a>
-          <H3 class="mt-2">PG. Pritani</H3>
+          <h4 class="mt-2">SPBU Cidadap</h4>
 
-          <!-- <a class="navbar-brand brand-logo-mini" href="index.php">
-            <img src="../assets/images/logo-mini.svg" alt="logo" />
-          </a> -->
         </div>
       </div>
     </nav>
