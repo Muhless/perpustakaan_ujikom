@@ -1,7 +1,33 @@
 <?php
 include 'header.php';
-?>
 
+if (isset($_POST['simpan_hasil'])) {
+    $tanggal_analisa = date('Y-m-d H:i:s');
+    
+    $hapus_lama = "DELETE FROM tbl_hasil_saw";
+    mysqli_query($koneksi, $hapus_lama);
+    
+    $query_hasil = "SELECT * FROM tbl_alternatif ORDER BY ranking";
+    $result = mysqli_query($koneksi, $query_hasil);
+    
+    $berhasil_simpan = true;
+    while ($data = mysqli_fetch_array($result)) {
+        $insert_hasil = "INSERT INTO tbl_hasil_saw (id_alternatif, nama_alternatif, nilai_saw, ranking, tanggal_analisa) 
+                        VALUES ('{$data['id_alternatif']}', '{$data['nama_alternatif']}', '{$data['nilai_saw']}', '{$data['ranking']}', '$tanggal_analisa')";
+        
+        if (!mysqli_query($koneksi, $insert_hasil)) {
+            $berhasil_simpan = false;
+            break;
+        }
+    }
+    
+    if ($berhasil_simpan) {
+        echo "<script>alert('Hasil analisa berhasil disimpan ke database!'); window.location.href='laporan.php';</script>";
+    } else {
+        echo "<script>alert('Gagal menyimpan hasil analisa!');</script>";
+    }
+}
+?>
 
 <!-- TODO: DROPDOWN -->
 <!-- partial -->
@@ -19,8 +45,15 @@ include '../sidebar.php';
                         <div class="card-body">
                         <div class="col d-flex justify-content-between align-items-center mb-3">
                              <h2 class="card-title mb-0">Hasil Analisa Metode SAW</h2>
+                             <div class="btn-group" role="group">
                                  <a href="../export_pdf.php" class="btn btn-success">Export ke PDF</a>
-                            </div>
+                                 <form method="POST" style="display: inline;" onsubmit="return confirm('Apakah Anda yakin ingin menyimpan hasil ini ke database?')">
+                                     <button type="submit" name="simpan_hasil" class="btn btn-primary ms-2">
+                                         <i class="mdi mdi-content-save"></i> Simpan ke Database
+                                     </button>
+                                 </form>
+                             </div>
+                        </div>
                             <div class="row">
                                 <!-- TODO -->
                                 <div class="container">
@@ -39,10 +72,10 @@ include '../sidebar.php';
                                                     <tbody>
                                                         <?php
                                                         $tabel = 'SELECT * FROM tbl_alternatif order by ranking';
-$query = mysqli_query($koneksi, $tabel) or exit(mysqli_error($koneksi));
-$no = 1;
-while ($a = mysqli_fetch_array($query)) {
-    ?>
+                                                        $query = mysqli_query($koneksi, $tabel) or exit(mysqli_error($koneksi));
+                                                        $no = 1;
+                                                        while ($a = mysqli_fetch_array($query)) {
+                                                        ?>
                                                             <tr>
                                                                 <td class="text-center"><?php echo $no++; ?></td>
                                                                 <td><?php echo $a['nama_alternatif']; ?></td>
@@ -50,11 +83,8 @@ while ($a = mysqli_fetch_array($query)) {
                                                                 <td class="text-center"><?php echo $a['ranking']; ?></td>
                                                             </tr>
                                                         <?php } ?>
-
                                                     </tbody>
-                                                    
                                                 </table>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +97,6 @@ while ($a = mysqli_fetch_array($query)) {
             </div>
         </div>
     </div>
-
-    
 </div>
 </div>
+<!-- FIXME: DROPDOWN -->
