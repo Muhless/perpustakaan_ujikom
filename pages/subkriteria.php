@@ -5,77 +5,10 @@ include 'header.php';
 <!-- TODO: DROPDOWN -->
 <!-- partial -->
 <div class="container-fluid page-body-wrapper">
-    <!-- partial:../../partials/_sidebar.html -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.php">
-                    <i class="mdi mdi-grid-large menu-icon"></i>
-                    <span class="menu-title">Halaman Awal</span>
-                </a>
-            </li>
-            <!-- FIXME -->
-            <li class="nav-item nav-category">Dashboard</li>
-            <li class="nav-item">
-                <a class="nav-link" href="../dashboard/transaksi.php">
-                    <i class="menu-icon mdi mdi-clipboard-text"></i>
-                    <span class="menu-title">Transaksi</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../dashboard/pelanggan.php">
-                    <i class="menu-icon mdi mdi-account"></i>
-                    <span class="menu-title">Pelanggan</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../dashboard/karyawan.php">
-                    <i class="menu-icon mdi mdi-account-multiple"></i>
-                    <span class="menu-title">Karyawan</span>
-                </a>
-            </li>
-            <li class="nav-item nav-category">Sistem Pendukung Keputusan</li>
-            <li class="nav-item">
-                <a class="nav-link" href="alternatif.php">
-                    <i class="menu-icon mdi mdi-format-list-bulleted"></i>
-                    <span class="menu-title">Alternatif</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="kriteria.php">
-                    <i class="menu-icon mdi mdi-playlist-plus"></i>
-                    <span class="menu-title">Kriteria</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="nilai.php">
-                    <i class="menu-icon mdi mdi-check-all"></i>
-                    <span class="menu-title">Nilai</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="metode.php">
-                    <i class="menu-icon mdi mdi-chart-bar"></i>
-                    <span class="menu-title">Metode</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="hasil.php">
-                    <i class="menu-icon mdi mdi-crown"></i>
-                    <span class="menu-title">Hasil</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mt-5" href="logout.php">
-                    <i class="menu-icon mdi mdi-logout-variant"></i>
-                    <span class="menu-title">Logout</span>
-                </a>
-            </li>
-            <!-- FIXME -->
-
-        </ul>
-    </nav>
+<?php
+$base_path = '..';
+include '../sidebar.php';
+?>
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
@@ -90,8 +23,8 @@ include 'header.php';
                                     <div class="row">
                                         <?php
                                         $data = mysqli_query($koneksi, "SELECT * FROM tbl_kriteria WHERE id_kriteria='$_GET[id_kriteria]'");
-                                        $a = mysqli_fetch_array($data);
-                                        ?>
+$a = mysqli_fetch_array($data);
+?>
                                     </div>
                                     <div class="panel panel-container">
                                         <div class="bootstrap-table">
@@ -114,15 +47,15 @@ include 'header.php';
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        $tabel = "SELECT * FROM tbl_kriteria a, tbl_subkriteria b 
+                $tabel = "SELECT * FROM tbl_kriteria a, tbl_subkriteria b 
                         WHERE a.id_kriteria=b.id_kriteria AND b.id_kriteria='$_GET[id_kriteria]' 
                         order by b.id_subkriteria";
-                                                        $query = mysqli_query($koneksi, $tabel) or die(mysqli_error($koneksi));
-                                                        $no = 1;
-                                                        while ($a = mysqli_fetch_array($query)) {
-                                                        ?>
+$query = mysqli_query($koneksi, $tabel) or exit(mysqli_error($koneksi));
+$no = 1;
+while ($a = mysqli_fetch_array($query)) {
+    ?>
                                                             <tr>
-                                                                <td class="text-center"><?php echo $no++ ?></td>
+                                                                <td class="text-center"><?php echo $no++; ?></td>
                                                                 <td class="text-center"><?php echo $a['nama_subkriteria']; ?></td>
                                                                 <td class="text-center"><?php echo $a['nilai_subkriteria']; ?></td>
 

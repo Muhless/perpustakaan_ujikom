@@ -19,7 +19,7 @@ include '../sidebar.php';
                         <div class="card-body">
                         <div class="col d-flex justify-content-between align-items-center mb-3">
                              <h2 class="card-title mb-0">Hasil Analisa Metode SAW</h2>
-                                 <a href="../export_pdf.php" class="btn btn-succes">Export ke PDF</a>
+                                 <a href="../export_pdf.php" class="btn btn-success">Export ke PDF</a>
                             </div>
                             <div class="row">
                                 <!-- TODO -->
@@ -52,7 +52,9 @@ while ($a = mysqli_fetch_array($query)) {
                                                         <?php } ?>
 
                                                     </tbody>
+                                                    
                                                 </table>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -64,8 +66,8 @@ while ($a = mysqli_fetch_array($query)) {
                 </div>
             </div>
         </div>
-
     </div>
+
+    
 </div>
 </div>
-<!-- FIXME: DROPDOWN -->

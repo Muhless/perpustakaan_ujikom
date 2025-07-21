@@ -9,12 +9,12 @@
         <span class="menu-title">Halaman Awal</span>
       </a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="<?php echo $base_path; ?>/pages/karyawan.php">
         <i class="menu-icon mdi mdi-account-multiple"></i>
         <span class="menu-title">Karyawan</span>
       </a>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" href="<?php echo $base_path; ?>/pages/alternatif.php">
         <i class="menu-icon mdi mdi-format-list-bulleted"></i>

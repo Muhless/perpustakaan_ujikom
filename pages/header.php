@@ -11,7 +11,7 @@ include '../conn/cek.php';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PSBU Cidadap</title>
+  <title>SPBU Cidadap</title>
 
   <link rel="stylesheet" href="../assets/vendors/feather/feather.css">
   <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -28,7 +28,7 @@ include '../conn/cek.php';
 
 <body>
   <div class="container-scroller">
-    <nav class="navbar default-layout col-lg-12 col-12 py-3 fixed-top d-flex align-items-top flex-row">
+    <nav class="navbar default-layout col-lg-12 col-12  fixed-top d-flex align-items-top flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
     
         <div>

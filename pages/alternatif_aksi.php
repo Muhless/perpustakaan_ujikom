@@ -1,8 +1,8 @@
 <?php
-include '../header.php';
+include 'header.php';
 if (isset($_GET['aksi'])) {
     if ($_GET['aksi'] == 'tambah') { ?>
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <ol class="breadcrumb">
                     <h4>ALTERNATIF/TAMBAH DATA</h4>
@@ -35,9 +35,9 @@ if (isset($_GET['aksi'])) {
                 <div class="bootsrap-table">
                     <?php
                     $tabel = "SELECT * FROM tbl_alternatif WHERE id_alternatif=$_GET[id_alternatif]";
-                    $query = mysqli_query($koneksi, $tabel) or die(mysqli_error($koneksi));
-                    while ($a = mysqli_fetch_array($query)) {
-                    ?>
+        $query = mysqli_query($koneksi, $tabel) or exit(mysqli_error($koneksi));
+        while ($a = mysqli_fetch_array($query)) {
+            ?>
                         <form action="alternatif_proses.php?proses=proses_ubah" method="post" enctype="multipart/form-data">
 
                             <input type="hidden" name="id_alternatif" value="<?php echo $a['id_alternatif']; ?>">
@@ -58,4 +58,4 @@ if (isset($_GET['aksi'])) {
         </div>
 
 <?php }
-} ?>
+    } ?>
