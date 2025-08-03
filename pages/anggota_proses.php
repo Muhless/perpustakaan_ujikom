@@ -1,17 +1,20 @@
 <?php
-include '../conn/koneksi.php'; // Pastikan koneksi database ada di dalam file ini
+include '../conn/koneksi.php'; 
 
 if (isset($_GET['proses'])) {
     if ($_GET['proses'] == 'proses_tambah') {
-        $nama_kriteria = mysqli_real_escape_string($koneksi, $_POST['nama_kriteria']);
-        $bobot_kriteria = mysqli_real_escape_string($koneksi, $_POST['bobot_kriteria']);
-        $tipe_kriteria = mysqli_real_escape_string($koneksi, $_POST['tipe_kriteria']);
+        $nama = mysqli_real_escape_string($koneksi, $_POST['nama']);
+        $nim = mysqli_real_escape_string($koneksi, $_POST['nim']);
+        $fakultas = mysqli_real_escape_string($koneksi, $_POST['fakultas']);
+        $prodi = mysqli_real_escape_string($koneksi, $_POST['program_studi']);
+  $status = 'Aktif';
 
-        $query = "INSERT INTO tbl_kriteria (nama_kriteria, bobot_kriteria, tipe_kriteria) 
-                  VALUES ('$nama_kriteria', '$bobot_kriteria', '$tipe_kriteria')";
+        
+        $query = "INSERT INTO anggota (nama, nim, fakultas, program_studi, status) 
+                  VALUES ('$nama', '$nim', '$fakultas', '$prodi', '$status')";
 
         if (mysqli_query($koneksi, $query)) {
-            header("Location: kriteria.php?status=success");
+            header("Location: anggota.php?status=success");
         } else {
             die("Error: " . mysqli_error($koneksi));
         }

@@ -11,7 +11,7 @@ include '../conn/cek.php';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>SPBU Cidadap</title>
+  <title>Perpustakaan UMT</title>
 
   <link rel="stylesheet" href="../assets/vendors/feather/feather.css">
   <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -23,7 +23,7 @@ include '../conn/cek.php';
   <link rel="stylesheet" href="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
 
   <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="shortcut icon" href="../assets/images/pertamina.png" />
+  <link rel="shortcut icon" href="../assets/images/logo.png" />
 </head>
 
 <body>
@@ -33,9 +33,9 @@ include '../conn/cek.php';
     
         <div>
           <a class="navbar-brand brand-logo" href="index.php">
-            <img src="../assets/images/pertamina.png" alt="logo" />
+            <img src="../assets/images/logo.png" alt="logo" />
           </a>
-          <h4 class="mt-2">SPBU Cidadap</h4>
+          <h4 class="mt-2">Perpustakaan UMT</h4>
 
         </div>
       </div>

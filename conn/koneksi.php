@@ -2,7 +2,7 @@
 $host="localhost";
 $user='root';
 $pass='';
-$db='spk';
+$db='db_perpustakaan';
 
 $koneksi = mysqli_connect($host, $user, $pass, $db) or die ('tidak terkoneksi ke server');
     if (!$koneksi) {

@@ -8,15 +8,15 @@ if (isset($_GET['aksi'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $tabel = "SELECT * FROM tbl_akun WHERE username='$username' and password='$password'";
+        $tabel = "SELECT * FROM petugas WHERE username='$username' and password='$password'";
         $query = mysqli_query($koneksi, $tabel) or die(mysqli_error($koneksi));
         $cek = mysqli_num_rows($query);
 
         if ($cek > 0) {
             $data = mysqli_fetch_assoc($query);
-            if ($data['level'] == 'Admin') {
+            if ($data['role'] == 'petugas') {
                 $_SESSION['username'] = $username;
-                $_SESSION['level'] = $admin;
+                $_SESSION['role'] = $admin;
                 header('location:pages/index.php');
             } else {
                 header('location:index.php?pesan=gagal');
@@ -42,12 +42,8 @@ if (isset($_GET['aksi'])) {
     <link rel="stylesheet" href="assets/vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
+ 
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- endinject -->
     <link rel="shortcut icon" href="assets/images/pertamina.png" />
 </head>
 
@@ -59,7 +55,7 @@ if (isset($_GET['aksi'])) {
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img src="assets/images/pertamina.png" alt="logo">
+                                <img src="assets/images/logo.png" alt="logo">
                             </div>
                             <h4>Selamat Datang,</h4>
                             <h6 class="fw-light">Silahkan login terlebih dahulu.</h6>
